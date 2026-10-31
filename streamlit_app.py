@@ -38,7 +38,7 @@ with col_top2:
 with col_top3:
     st.metric(label="Fin Prévue", value="28/02/2027")
 with col_top4:
-    st.metric(label="Budget Total", value="50 000 000 FCFA")
+    st.metric(label="Budget Total", value="45 000 000 FCFA")
 
 st.divider()
 
@@ -49,7 +49,7 @@ tab_phases, tab_rapports, tab_journal, tab_simulation = st.tabs([
     "📋 Phases du Chantier", 
     "📊 Suivi & Rapports (Graphiques)", 
     "📓 Journal de Chantier", 
-    "🧮 Simulation Directe "
+    "🧮 Simulation Directe (Cameroun)"
 ])
 
 # =========================================================
@@ -59,9 +59,9 @@ with tab_phases:
     st.subheader("Phases d'Exécution du Projet")
     phases_data = [
         {"Phase": "Terrassement et implantation", "Type": "Terrassement", "Statut": "Terminé", "Echéance": "20/07/2026", "Progrès": 100},
-        {"Phase": "Fondations (semelles et longrines)", "Type": "Fondations", "Statut": "Terminé", "Echéance": "10/09/2026", "Progrès": 100},
+        {"Phase": "Fondations (semelles et longrines)", "Type": "Fondations", "Statut": "En cours", "Echéance": "10/09/2026", "Progrès": 90},
         {"Phase": "Élévation du rez-de-chaussée", "Type": "Gros œuvre", "Statut": "En cours", "Echéance": "30/11/2026", "Progrès": 55},
-        {"Phase": "Dalle du 1er étage", "Type": "Gros œuvre", "Statut": "À faire", "Echéance": "20/12/2026", "Progrès": 0},
+        {"Phase": "Dalle du 1er étage", "Type": "Gros œuvre", "Statut": "En cours", "Echéance": "20/12/2026", "Progrès": 10},
         {"Phase": "Élévation des étages et toiture", "Type": "Gros œuvre", "Statut": "À faire", "Echéance": "10/02/2027", "Progrès": 0},
         {"Phase": "Menuiserie, peinture et finitions", "Type": "Finitions", "Statut": "À faire", "Echéance": "28/02/2027", "Progrès": 0},
     ]
@@ -82,7 +82,7 @@ with tab_phases:
 with tab_rapports:
     st.subheader("Analyses d'Études & Indicateurs Clés")
     m1, m2, m3, m4 = st.columns(4)
-    m1.metric("Budget Consommé", "18.9 M FCFA", "Budget Total: 50 M FCFA")
+    m1.metric("Budget Consommé", "18.9 M FCFA", "Budget Total: 45 M FCFA")
     m2.metric("Retard Accumulé", "6 jours", "Météo / Approvisionnement")
     m3.metric("Taux d'Avancement réel", "43 %", "Prévu: 45 %")
     m4.metric("Sécurité (Jours sans accident)", "74 jours", "Objectif: 100%")
@@ -195,7 +195,7 @@ with tab_simulation:
         masse_salariale_jour = sum(row["Nombre"] * row["Coût unitaire journalier"] for _, row in df_effectifs.iterrows())
         surcout_meteo = JOURS_INTEMPERIES * masse_salariale_jour
         
-        budget_initial = 50000000
+        budget_initial = 45000000
         budget_simule = budget_initial + surcout_meteo + BUDGET_DECHETS
 
         st.metric(label="Masse Salariale Journalière", value=f"{masse_salariale_jour:,} FCFA".replace(",", " "))
