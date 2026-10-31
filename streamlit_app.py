@@ -59,7 +59,7 @@ with tab_phases:
     st.subheader("Phases d'Exécution du Projet")
     phases_data = [
         {"Phase": "Terrassement et implantation", "Type": "Terrassement", "Statut": "Terminé", "Echéance": "20/07/2026", "Progrès": 100},
-        {"Phase": "Fondations (semelles et longrines)", "Type": "Fondations", "Statut": "En cours", "Echéance": "10/09/2026", "Progrès": 90},
+        {"Phase": "Fondations (semelles et longrines)", "Type": "Fondations", "Statut": "Terminé", "Echéance": "10/09/2026", "Progrès": 100},
         {"Phase": "Élévation du rez-de-chaussée", "Type": "Gros œuvre", "Statut": "En cours", "Echéance": "30/11/2026", "Progrès": 55},
         {"Phase": "Dalle du 1er étage", "Type": "Gros œuvre", "Statut": "En cours", "Echéance": "20/12/2026", "Progrès": 10},
         {"Phase": "Élévation des étages et toiture", "Type": "Gros œuvre", "Statut": "À faire", "Echéance": "10/02/2027", "Progrès": 0},
@@ -92,7 +92,7 @@ with tab_rapports:
     st.markdown("#### 1. Avancement Réel vs Planifié par Phase")
     df_avancement = pd.DataFrame({
         "Phase": ["Terrassement", "Fondations", "Rez-de-chaussée", "Dalle 1er étage", "Élévation Étages", "Finitions"],
-        "Réel (%)": [100, 90, 55, 10, 0, 0],
+        "Réel (%)": [100, 100, 55, 10, 0, 0],
         "Planifié (%)": [100, 100, 70, 25, 0, 0]
     })
     fig_prog = px.bar(df_avancement, x="Phase", y=["Réel (%)", "Planifié (%)"], barmode="group", color_discrete_sequence=["#EA580C", "#94A3B8"], height=350)
