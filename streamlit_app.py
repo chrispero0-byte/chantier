@@ -49,7 +49,7 @@ tab_phases, tab_rapports, tab_journal, tab_simulation = st.tabs([
     "📋 Phases du Chantier", 
     "📊 Suivi & Rapports (Graphiques)", 
     "📓 Journal de Chantier", 
-    "🧮 Simulation Directe (Cameroun)"
+    "🧮 Simulation Directe "
 ])
 
 # =========================================================
